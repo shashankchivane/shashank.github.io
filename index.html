@@ -425,12 +425,45 @@
             font-size: 1.5rem;
             color: var(--accent-color);
             transition: all 0.3s ease;
+            animation: counterRotate 30s linear infinite;
         }
 
         .skill-item:hover {
             transform: scale(1.2);
             box-shadow: 0 10px 25px rgba(108, 92, 231, 0.2);
         }
+
+        @keyframes counterRotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(-360deg);
+            }
+        }
+
+        .skill-item {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            transition: all 0.3s ease;
+            animation: counterRotate 30s linear infinite;
+        }
+
+        @keyframes counterRotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                
 
         .orbit-center {
             position: absolute;
@@ -446,13 +479,12 @@
             align-items: center;
             justify-content: center;
             z-index: 10;
+            overflow: hidden;
         }
 
-        .orbit-center img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
+        .orbit-center i {
+            font-size: 40px;
+            color: var(--accent-color);
         }
 
         @keyframes rotateSlow {
@@ -1130,12 +1162,16 @@
                         Project Management
                     </div>
                     <div class="tech-badge">
+                        <i class="fas fa-project-diagram"></i>
+                        Programme Management
+                    </div>
+                    <div class="tech-badge">
                         <i class="fas fa-code-branch"></i>
                         Agile
                     </div>
                     <div class="tech-badge">
-                        <i class="fas fa-cloud"></i>
-                        AWS
+                        <i class="fas fa-robot"></i>
+                        AI
                     </div>
                     <div class="tech-badge">
                         <i class="fas fa-brain"></i>
@@ -1158,7 +1194,7 @@
             <div class="skills-visualization">
                 <div class="skill-orbit">
                     <div class="orbit-center">
-                        <img src="https://via.placeholder.com/80" alt="Shashank Chivane">
+                        <i class="fas fa-user-tie"></i>
                     </div>
                     <div class="skill-item" style="top: 0; left: 50%; transform: translate(-50%, -50%);">
                         <i class="fas fa-code-branch"></i>
@@ -1452,7 +1488,7 @@
             <div class="certifications-container">
                 <div class="certification-card">
                     <div class="certification-logo">
-                        <img src="https://www.pmi.org/-/media/pmi/other-images/microsites/pmi-logo-mark-white-orange.svg" alt="PMI Logo">
+                        <i class="fas fa-certificate" style="font-size: 4rem; color: #FF5733;"></i>
                     </div>
                     <div class="certification-content">
                         <h3>Certified Associate in Project Management (CAPM)</h3>
@@ -1466,7 +1502,7 @@
                 
                 <div class="certification-card">
                     <div class="certification-logo">
-                        <img src="https://apmg-international.com/themes/custom/apmg2019/logo-white.svg" alt="APMG International Logo">
+                        <i class="fas fa-award" style="font-size: 4rem; color: #3498db;"></i>
                     </div>
                     <div class="certification-content">
                         <h3>AgilePM Practitioner</h3>
@@ -1480,7 +1516,7 @@
                 
                 <div class="certification-card">
                     <div class="certification-logo">
-                        <img src="https://www.scrum.org/themes/custom/scrumorg2019/dist/images/logo-250.png" alt="Scrum.org Logo">
+                        <i class="fab fa-schlix" style="font-size: 4rem; color: #1abc9c;"></i>
                     </div>
                     <div class="certification-content">
                         <h3>Professional Scrum Master (PSM I)</h3>
