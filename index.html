@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shashank Chivane - Professional Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e67e22;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --section-padding: 60px 0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        /* Mobile nav */
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .hero-btns {
+            margin-top: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 4px;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary-color);
+        }
+        
+        /* About Section */
+        .about {
+            padding: var(--section-padding);
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            width: 80px;
+            height: 3px;
+            background: var(--accent-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+        
+        .about-info {
+            flex: 1;
+            min-width: 300px;
+            background: var(--light-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-item {
+            margin-bottom: 15px;
+            display: flex;
+        }
+        
+        .info-item strong {
+            min-width: 120px;
+            display: inline-block;
+            color: var(--primary-color);
+        }
+        
+        /* Experience Section */
+        .experience {
+            padding: var(--section-padding);
+            background-color: var(--light-color);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s forwards;
+            animation-delay: calc(var(--delay) * 0.2s);
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--secondary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -12px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .timeline-content h4 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .timeline-date {
+            color: var(--accent-color);
+            font-style: italic;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        /* Skills Section */
+        .skills {
+            padding: var(--section-padding);
+            background-color: white;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .skill-tag {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            margin: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Education Section */
+        .education {
+            padding: var(--section-padding);
+            background-color: var(--light-color);
+        }
+        
+        .education-item {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .education-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .education-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .education-item h4 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .education-date {
+            color: var(--accent-color);
+            font-style: italic;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        /* Achievements Section */
+        .achievements {
+            padding: var(--section-padding);
+            background-color: white;
+        }
+        
+        .achievement-box {
+            background: var(--light-color);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .achievement-box:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .achievement-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .achievement-box:hover h3 {
+            color: white;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: var(--section-padding);
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .contact-item {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-right: 10px;
+        }
+        
+        .contact-item h3 {
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+        
+        .social-links {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 15px;
+            font-size: 1.5rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 991px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+            }
+            
+            .timeline-item:nth-child(odd) {
+                text-align: left;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                background: var(--primary-color);
+                height: 100vh;
+                width: 100%;
+                top: 80px;
+                left: -100%;
+                text-align: center;
+                transition: all 0.3s ease;
+                flex-direction: column;
+                padding-top: 50px;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 20px 0;
+            }
+            
+            .about-text, .about-info {
+                width: 100%;
+                padding: 0;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <h1>Shashank Chivane</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="mobile-menu">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Shashank Chivane</h1>
+                <p>Manager - CDO at Protean e-gov Technologies</p>
+                <p>Experienced Project Manager with over 9 years of expertise in digital public infrastructure, e-commerce, ad tech, and translation sectors.</p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn">Contact Me</a>
+                    <a href="#experience" class="btn btn-outline">View Experience</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I have over nine years of extensive experience in leading transformative projects across digital public infrastructure, e-commerce, ad tech, and translation sectors. My key strengths lie in driving business impact through operational efficiency, platform scaling, and solutions that enhance user engagement. I am committed to delivering high-quality results and fostering team collaboration to achieve project success.</p>
+                    <p>Currently working as a Manager in the CDO department at Protean e-gov Technologies Ltd., I've led large-scale digital public infrastructure projects including the Protean Surakshaa Account Aggregator and the Agristack project for India.</p>
+                </div>
+                <div class="about-info">
+                    <div class="info-item">
+                        <strong>Name:</strong> <span>Shashank Chivane</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Position:</strong> <span>Manager - CDO</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Company:</strong> <span>Protean e-gov Technologies Ltd.</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Location:</strong> <span>Pune, India</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Phone:</strong> <span>+91 8275787476</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Email:</strong> <span>shashankchivane@gmail.com</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>LinkedIn:</strong> <span><a href="https://www.linkedin.com/in/shashankchivane/" target="_blank">linkedin.com/in/shashankchivane</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Work Experience</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item" style="--delay:1">
+                    <div class="timeline-content">
+                        <h3>Manager</h3>
+                        <h4>Protean eGov Technologies Ltd.</h4>
+                        <span class="timeline-date">January 2023 - Present | Pune, India</span>
+                        <p>A leader in digital public infrastructure projects.</p>
+                        <ul>
+                            <li>Led large-scale digital public infrastructure projects.</li>
+                            <li>Integrated financial insights for users via Protean Surakshaa Account Aggregator.</li>
+                            <li>Enhanced agricultural productivity with Agristack for India.</li>
+                            <li>Developed AI tools for decision-making optimization.</li>
+                            <li>Created a secure platform for verifiable credentials.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item" style="--delay:2">
+                    <div class="timeline-content">
+                        <h3>Technical Project Manager</h3>
+                        <h4>QED42</h4>
+                        <span class="timeline-date">April 2021 - January 2023 | India</span>
+                        <p>Focused on project management and innovation for notable clients.</p>
+                        <ul>
+                            <li>Managed cross-functional teams to deliver solutions on time.</li>
+                            <li>Led the development of Knowledge@UNICEF, a centralized CMS.</li>
+                            <li>Developed a platform for booking photographers for Canon India.</li>
+                            <li>Migrated Rajasthan Patrika's website boosting user engagement.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item" style="--delay:3">
+                    <div class="timeline-content">
+                        <h3>Senior Associate Project Manager</h3>
+                        <h4>Media.net</h4>
+                        <span class="timeline-date">May 2019 - April 2021 | Mumbai, India</span>
+                        <p>Leading media technology company.</p>
+                        <ul>
+                            <li>Managed high-priority projects for the Company's President.</li>
+                            <li>Tracked project timelines and risks using MS Project.</li>
+                            <li>Coordinated cross-team execution of key initiatives.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item" style="--delay:4">
+                    <div class="timeline-content">
+                        <h3>Project Manager</h3>
+                        <h4>Iksula</h4>
+                        <span class="timeline-date">November 2017 - May 2019 | Mumbai, India</span>
+                        <p>E-commerce and digital marketing solutions provider.</p>
+                        <ul>
+                            <li>Managed multiple projects with Dubai luxury brand and others.</li>
+                            <li>Led project teams of 7-10 in Agile methodology.</li>
+                            <li>Conducted internal training for knowledge sharing.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item" style="--delay:5">
+                    <div class="timeline-content">
+                        <h3>Project Coordinator</h3>
+                        <h4>Crimson Interactive</h4>
+                        <span class="timeline-date">August 2016 - November 2017 | Mumbai, India</span>
+                        <ul>
+                            <li>Coordinated project tasks and managed deadlines.</li>
+                            <li>Handled team coordination and decision making.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item" style="--delay:6">
+                    <div class="timeline-content">
+                        <h3>Intern</h3>
+                        <h4>Apple</h4>
+                        <span class="timeline-date">May 2014 - July 2014 | California, USA</span>
+                        <p>A multinational technology company.</p>
+                        <ul>
+                            <li>Performed system diagnostics as an intern.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Skills</h2>
+            </div>
+            <div class="skills-container">
+                <span class="skill-tag">Agile</span>
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">AWS Cloud</span>
+                <span class="skill-tag">Business Development</span>
+                <span class="skill-tag">CMS</span>
+                <span class="skill-tag">Drupal</span>
+                <span class="skill-tag">Javascript</span>
+                <span class="skill-tag">JIRA</span>
+                <span class="skill-tag">MS Project</span>
+                <span class="skill-tag">PHP</span>
+                <span class="skill-tag">PMI</span>
+                <span class="skill-tag">Scrum</span>
+                <span class="skill-tag">Skype</span>
+                <span class="skill-tag">ZoHo</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+            </div>
+            <div class="education-container">
+                <div class="education-item">
+                    <h3>Master of Science (MSc)</h3>
+                    <h4>SKEMA Business School</h4>
+                    <span class="education-date">2015 - 2016 | Paris</span>
+                </div>
+                <div class="education-item">
+                    <h3>Bachelor of Engineering (B.E.)</h3>
+                    <h4>Kavikulguru Institute of Technology and Science</h4>
+                    <span class="education-date">2010 - 2014 | Maharashtra, India</span>
+                </div>
+                <div class="education-item">
+                    <h3>High School</h3>
+                    <h4>Montfort School</h4>
+                    <span class="education-date">2007 - 2010 | Nagpur</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements" id="achievements">
+        <div class="container">
+            <div class="section-title">
+                <h2>Key Achievements</h2>
+            </div>
+            <div class="achievement-container">
+                <div class="achievement-box">
+                    <h3>Leadership in Transformative Project Management</h3>
+                    <p>Spearheaded initiatives that significantly improved digital public infrastructure and transformed user engagement, prominently with the Protean Surakshaa Account Aggregator and the Agristack project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Phone</h3>
+                    <p>+91 8275787476</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p>shashankchivane@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Location</h3>
+                    <p>Pune, India</p>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/shashankchivane/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Shashank Chivane. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Handle mobile menu
+        const mobileMenuButton = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+        
+        // Animate elements on scroll
+        window.addEventListener('scroll', () => {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                if (itemTop < window.innerHeight - 100) {
+                    item.style.opacity = 1;
+                    item.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
