@@ -1,510 +1,1047 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shashank Chivane | Program & Delivery Leader</title>
-    <style>
-        :root {
-            --primary: #0f172a;
-            --secondary: #2563eb;
-            --accent: #38bdf8;
-            --text-main: #334155;
-            --text-light: #64748b;
-            --bg-light: #f8fafc;
-            --card-bg: #ffffff;
-            --border: #e2e8f0;
-        }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shashank Chivane | Program & Delivery Leader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet"/>
+<style>
+  /* ── Reset & Base ───────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy:   #1F3864;
+    --navy2:  #162a4f;
+    --accent: #2E75B6;
+    --gold:   #C9A84C;
+    --smoke:  #F4F6FA;
+    --mist:   #E8EDF5;
+    --ink:    #1A1A2E;
+    --mid:    #4A5568;
+    --light:  #8898AA;
+    --white:  #FFFFFF;
+    --card-r: 12px;
+    --trans:  cubic-bezier(.4,0,.2,1);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--smoke); color: var(--ink); line-height: 1.6; }
+  a { color: inherit; text-decoration: none; }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
+  /* ── Nav ────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(31,56,100,.96); backdrop-filter: blur(12px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; height: 58px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .nav-brand { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.1rem; color: var(--white); letter-spacing: .02em; }
+  .nav-links { display: flex; gap: 0; }
+  .nav-links a {
+    color: rgba(255,255,255,.7); font-size: .85rem; font-weight: 500;
+    padding: .4rem 1rem; border-radius: 6px; transition: all .2s var(--trans);
+    letter-spacing: .03em;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--white); background: rgba(255,255,255,.12); }
+  .nav-badge {
+    background: var(--gold); color: var(--navy2); font-size: .72rem;
+    font-weight: 700; padding: .25rem .7rem; border-radius: 20px; letter-spacing: .04em;
+  }
 
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
+  /* ── Sections ───────────────────────────────────── */
+  .page { display: none; padding-top: 58px; min-height: 100vh; }
+  .page.active { display: block; }
 
-        header {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-            padding: 5rem 2rem 4rem 2rem;
-            text-align: center;
-        }
+  /* ── Hero ───────────────────────────────────────── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy2) 0%, var(--navy) 55%, #2E5299 100%);
+    padding: 5rem 2rem 4rem; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 50% at 50% 80%, rgba(46,117,182,.25) 0%, transparent 70%);
+  }
+  .hero-eyebrow {
+    display: inline-block; background: rgba(201,168,76,.15); border: 1px solid rgba(201,168,76,.4);
+    color: var(--gold); font-size: .78rem; font-weight: 600; letter-spacing: .1em;
+    text-transform: uppercase; padding: .35rem 1rem; border-radius: 20px; margin-bottom: 1.5rem;
+  }
+  .hero h1 { font-family: 'Fraunces', serif; font-weight: 700; font-size: clamp(2.2rem, 5vw, 3.4rem); color: var(--white); line-height: 1.15; margin-bottom: .75rem; }
+  .hero-sub { color: rgba(255,255,255,.65); font-size: 1.05rem; font-weight: 400; margin-bottom: 2rem; max-width: 580px; margin-left: auto; margin-right: auto; }
+  .hero-contacts { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin-bottom: 3rem; }
+  .hero-contacts a {
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+    color: rgba(255,255,255,.85); font-size: .82rem; padding: .4rem .9rem; border-radius: 6px;
+    transition: all .2s; display: flex; align-items: center; gap: .4rem;
+  }
+  .hero-contacts a:hover { background: rgba(255,255,255,.16); color: var(--white); }
 
-        .header-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+  /* ── Stats strip ────────────────────────────────── */
+  .stats-strip {
+    display: flex; flex-wrap: wrap; gap: 0;
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+    border-radius: var(--card-r); max-width: 780px; margin: 0 auto; overflow: hidden;
+  }
+  .stat-item { flex: 1; min-width: 120px; padding: 1.2rem 1rem; text-align: center; border-right: 1px solid rgba(255,255,255,.1); }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 700; color: var(--gold); line-height: 1; }
+  .stat-lbl { font-size: .72rem; color: rgba(255,255,255,.55); text-transform: uppercase; letter-spacing: .06em; margin-top: .3rem; }
 
-        .badge {
-            background: rgba(37, 99, 235, 0.2);
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            display: inline-block;
-            margin-bottom: 1.5rem;
-        }
+  /* ── Section shell ──────────────────────────────── */
+  .section { max-width: 900px; margin: 0 auto; padding: 3.5rem 2rem; }
+  .section-title {
+    font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.75rem; color: var(--navy);
+    margin-bottom: .4rem;
+  }
+  .section-rule { width: 48px; height: 3px; background: var(--gold); border-radius: 2px; margin-bottom: 2rem; }
 
-        h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            letter-spacing: -0.025em;
-            margin-bottom: 0.5rem;
-        }
+  /* ── Cards ──────────────────────────────────────── */
+  .card {
+    background: var(--white); border-radius: var(--card-r);
+    border: 1px solid var(--mist); padding: 1.6rem;
+    transition: box-shadow .25s var(--trans), transform .25s var(--trans);
+    position: relative; overflow: hidden;
+  }
+  .card:hover { box-shadow: 0 8px 32px rgba(31,56,100,.1); transform: translateY(-2px); }
+  .card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--gold); }
 
-        .subtitle {
-            font-size: 1.25rem;
-            color: #cbd5e1;
-            margin-bottom: 2rem;
-            font-weight: 400;
-        }
+  /* ── Summary section ────────────────────────────── */
+  .summary-text { font-size: 1.02rem; color: var(--mid); line-height: 1.8; max-width: 760px; }
+  .cap-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-top: 2rem; }
+  .cap-card { background: var(--white); border-radius: var(--card-r); border: 1px solid var(--mist); padding: 1.3rem 1.4rem; }
+  .cap-card h4 { font-size: .88rem; font-weight: 700; color: var(--navy); margin-bottom: .4rem; }
+  .cap-card p { font-size: .82rem; color: var(--mid); line-height: 1.6; }
 
-        .contact-bar {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            font-size: 0.95rem;
-        }
+  /* ── Experience timeline ────────────────────────── */
+  .exp-list { display: flex; flex-direction: column; gap: 1.2rem; }
+  .exp-card { background: var(--white); border-radius: var(--card-r); border: 1px solid var(--mist); padding: 1.6rem; position: relative; overflow: hidden; }
+  .exp-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent); }
+  .exp-header { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; margin-bottom: .75rem; }
+  .exp-title { font-size: 1rem; font-weight: 700; color: var(--navy); }
+  .exp-dates { font-size: .78rem; font-weight: 500; color: var(--gold); background: rgba(201,168,76,.1); padding: .25rem .7rem; border-radius: 20px; white-space: nowrap; }
+  .exp-company { font-size: .88rem; color: var(--accent); font-weight: 600; margin-bottom: .75rem; }
+  .exp-bullets { padding-left: 1.1rem; }
+  .exp-bullets li { font-size: .86rem; color: var(--mid); line-height: 1.65; margin-bottom: .35rem; }
+  .exp-bullets li::marker { color: var(--gold); }
 
-        .contact-bar a {
-            color: #94a3b8;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
+  /* ── Skills ─────────────────────────────────────── */
+  .skill-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+  .skill-group { background: var(--white); border-radius: var(--card-r); border: 1px solid var(--mist); padding: 1.3rem; }
+  .skill-group h4 { font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--navy); margin-bottom: .8rem; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+  .tag { font-size: .76rem; background: var(--smoke); color: var(--mid); padding: .25rem .6rem; border-radius: 4px; font-weight: 500; }
 
-        .contact-bar a:hover {
-            color: white;
-        }
+  /* ── Edu & Certs ────────────────────────────────── */
+  .edu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+  .edu-card { background: var(--white); border-radius: var(--card-r); border: 1px solid var(--mist); padding: 1.4rem; position: relative; overflow: hidden; }
+  .edu-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--navy); }
+  .edu-degree { font-size: .95rem; font-weight: 700; color: var(--navy); margin-bottom: .2rem; }
+  .edu-school { font-size: .85rem; color: var(--accent); font-weight: 600; }
+  .edu-year { font-size: .78rem; color: var(--light); margin-top: .2rem; }
+  .cert-grid { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1rem; }
+  .cert-badge {
+    background: linear-gradient(135deg, var(--navy), var(--accent));
+    color: var(--white); font-size: .82rem; font-weight: 600;
+    padding: .5rem 1.1rem; border-radius: 8px; display: flex; align-items: center; gap: .5rem;
+  }
 
-        main {
-            max-width: 1100px;
-            margin: -2rem auto 4rem auto;
-            padding: 0 1.5rem;
-        }
+  /* ─────────────────────────────────────────────────
+     PROJECTS PAGE
+  ───────────────────────────────────────────────── */
+  .proj-filter { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem; }
+  .filter-btn {
+    font-size: .8rem; font-weight: 600; padding: .35rem .9rem; border-radius: 20px;
+    border: 1px solid var(--mist); background: var(--white); color: var(--mid);
+    cursor: pointer; transition: all .2s;
+  }
+  .filter-btn.active, .filter-btn:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
 
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
+  .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 1.4rem; }
+  .proj-card {
+    background: var(--white); border-radius: var(--card-r); border: 1px solid var(--mist);
+    overflow: hidden; cursor: pointer; transition: all .25s var(--trans);
+    display: flex; flex-direction: column;
+  }
+  .proj-card:hover { box-shadow: 0 10px 40px rgba(31,56,100,.12); transform: translateY(-3px); }
+  .proj-card-top { padding: 1.5rem; flex: 1; }
+  .proj-type {
+    font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+    color: var(--white); padding: .2rem .6rem; border-radius: 4px; display: inline-block; margin-bottom: .8rem;
+  }
+  .proj-type.dpi { background: #16A34A; }
+  .proj-type.enterprise { background: var(--accent); }
+  .proj-type.ai { background: #7C3AED; }
+  .proj-type.pmo { background: #EA580C; }
+  .proj-name { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: .5rem; line-height: 1.3; }
+  .proj-org { font-size: .82rem; color: var(--accent); font-weight: 600; margin-bottom: .8rem; }
+  .proj-desc { font-size: .85rem; color: var(--mid); line-height: 1.65; }
+  .proj-metrics { display: flex; flex-wrap: wrap; gap: .5rem; padding: 1rem 1.5rem; background: var(--smoke); border-top: 1px solid var(--mist); }
+  .metric-chip { font-size: .75rem; font-weight: 600; color: var(--navy); background: var(--mist); padding: .2rem .6rem; border-radius: 4px; }
 
-        .metric-card {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
-            text-align: center;
-            border: 1px solid var(--border);
-        }
+  /* Modal */
+  .modal-bg {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(10,20,40,.7); backdrop-filter: blur(4px);
+    align-items: center; justify-content: center; padding: 1rem;
+  }
+  .modal-bg.open { display: flex; }
+  .modal {
+    background: var(--white); border-radius: 16px; max-width: 660px; width: 100%;
+    max-height: 90vh; overflow-y: auto; padding: 2rem;
+  }
+  .modal-close { float: right; font-size: 1.5rem; cursor: pointer; color: var(--mid); line-height: 1; }
+  .modal h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; color: var(--navy); margin-bottom: .3rem; clear: both; }
+  .modal-meta { font-size: .83rem; color: var(--mid); margin-bottom: 1.2rem; }
+  .modal-section { margin-bottom: 1.2rem; }
+  .modal-section h4 { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--light); margin-bottom: .5rem; }
+  .modal-section p, .modal-section li { font-size: .88rem; color: var(--mid); line-height: 1.7; }
+  .modal-section ul { padding-left: 1.1rem; }
+  .modal-section li { margin-bottom: .3rem; }
+  .modal-kpis { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: .8rem; margin-top: .5rem; }
+  .kpi-box { background: var(--smoke); border-radius: 8px; padding: .8rem; text-align: center; }
+  .kpi-num { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; color: var(--navy); line-height: 1; }
+  .kpi-lbl { font-size: .72rem; color: var(--light); margin-top: .25rem; }
 
-        .metric-num {
-            font-size: 2.25rem;
-            font-weight: 800;
-            color: var(--secondary);
-            display: block;
-        }
+  /* ─────────────────────────────────────────────────
+     STATS PAGE
+  ───────────────────────────────────────────────── */
+  .big-stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+  .big-stat { background: var(--white); border-radius: var(--card-r); border: 1px solid var(--mist); padding: 1.8rem 1.4rem; text-align: center; position: relative; overflow: hidden; }
+  .big-stat::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--gold); }
+  .big-stat-num { font-family: 'Fraunces', serif; font-size: 2.8rem; font-weight: 700; color: var(--navy); line-height: 1; }
+  .big-stat-lbl { font-size: .8rem; color: var(--mid); margin-top: .4rem; font-weight: 500; }
 
-        .metric-label {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            font-weight: 600;
-            margin-top: 0.25rem;
-        }
+  .bar-chart { display: flex; flex-direction: column; gap: .9rem; }
+  .bar-row { display: flex; align-items: center; gap: 1rem; }
+  .bar-label { font-size: .82rem; color: var(--mid); width: 180px; flex-shrink: 0; text-align: right; }
+  .bar-track { flex: 1; background: var(--mist); border-radius: 4px; height: 22px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--navy), var(--accent)); display: flex; align-items: center; padding-left: .5rem; transition: width 1s var(--trans); }
+  .bar-val { font-size: .75rem; font-weight: 700; color: var(--white); white-space: nowrap; }
 
-        section {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            margin-bottom: 2rem;
-            border: 1px solid var(--border);
-        }
+  .timeline-viz { position: relative; padding-left: 2rem; }
+  .timeline-viz::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 2px; background: var(--mist); }
+  .tl-item { position: relative; margin-bottom: 1.4rem; }
+  .tl-item::before {
+    content: ''; position: absolute; left: -2rem; top: 6px;
+    width: 10px; height: 10px; border-radius: 50%; background: var(--gold);
+    border: 2px solid var(--white); box-shadow: 0 0 0 2px var(--gold);
+  }
+  .tl-year { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--gold); margin-bottom: .15rem; }
+  .tl-role { font-size: .9rem; font-weight: 700; color: var(--navy); }
+  .tl-co { font-size: .82rem; color: var(--mid); }
 
-        h2 {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--secondary);
-            padding-left: 0.75rem;
-        }
+  .delivery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+  .del-card { background: var(--white); border-radius: var(--card-r); border: 1px solid var(--mist); padding: 1.3rem; display: flex; flex-direction: column; gap: .4rem; }
+  .del-icon { font-size: 1.6rem; }
+  .del-num { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 700; color: var(--navy); line-height: 1; }
+  .del-lbl { font-size: .8rem; color: var(--mid); }
 
-        .capabilities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
+  /* ─────────────────────────────────────────────────
+     PM LEARNINGS PAGE
+  ───────────────────────────────────────────────── */
+  .learnings-intro { font-size: 1rem; color: var(--mid); line-height: 1.8; max-width: 680px; margin-bottom: 2.5rem; }
+  .learning-category { margin-bottom: 2.5rem; }
+  .cat-header { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.2rem; }
+  .cat-icon { font-size: 1.4rem; }
+  .cat-title { font-size: 1rem; font-weight: 700; color: var(--navy); }
+  .learning-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+  .learning-card {
+    background: var(--white); border-radius: var(--card-r); border: 1px solid var(--mist);
+    padding: 1.4rem; position: relative; overflow: hidden;
+  }
+  .learning-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--gold); }
+  .learning-num { font-family: 'Fraunces', serif; font-size: .72rem; font-weight: 700; color: var(--light); letter-spacing: .1em; text-transform: uppercase; margin-bottom: .4rem; }
+  .learning-title { font-size: .95rem; font-weight: 700; color: var(--navy); margin-bottom: .5rem; line-height: 1.35; }
+  .learning-body { font-size: .83rem; color: var(--mid); line-height: 1.7; }
+  .learning-tag { display: inline-block; font-size: .7rem; font-weight: 600; background: var(--smoke); color: var(--light); padding: .15rem .5rem; border-radius: 4px; margin-top: .6rem; text-transform: uppercase; letter-spacing: .06em; }
 
-        .capability-item h3 {
-            font-size: 1.1rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
+  /* ── Footer ─────────────────────────────────────── */
+  footer { background: var(--navy2); color: rgba(255,255,255,.5); text-align: center; font-size: .8rem; padding: 1.8rem; margin-top: 3rem; }
+  footer a { color: rgba(255,255,255,.7); }
 
-        .capability-item p {
-            font-size: 0.95rem;
-            color: var(--text-light);
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-left: 2rem;
-            border-left: 2px solid var(--border);
-            margin-bottom: 2.5rem;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 6px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--secondary);
-        }
-
-        .job-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            margin-bottom: 0.75rem;
-        }
-
-        .job-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .company {
-            color: var(--secondary);
-            font-weight: 600;
-        }
-
-        .date {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .bullet-list {
-            list-style-type: none;
-        }
-
-        .bullet-list li {
-            position: relative;
-            padding-left: 1.25rem;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-
-        .bullet-list li::before {
-            content: "▪";
-            position: absolute;
-            left: 0;
-            color: var(--secondary);
-        }
-
-        .skills-container {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .skills-group h3 {
-            font-size: 1rem;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.75rem;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tag {
-            background: var(--bg-light);
-            border: 1px solid var(--border);
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .edu-cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.85rem;
-            color: var(--text-light);
-            border-top: 1px solid var(--border);
-            background: white;
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.25rem; }
-            .contact-bar { flex-direction: column; gap: 0.5rem; }
-            .job-meta { flex-direction: column; }
-            section { padding: 1.5rem; }
-        }
-    </style>
+  /* ── Responsive ─────────────────────────────────── */
+  @media (max-width: 600px) {
+    .nav-links a { padding: .4rem .6rem; font-size: .78rem; }
+    .proj-grid { grid-template-columns: 1fr; }
+    .bar-label { width: 110px; font-size: .75rem; }
+    .hero h1 { font-size: 1.9rem; }
+    .stat-num { font-size: 1.5rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+</style>
 </head>
 <body>
 
-    <header>
-        <div class="header-container">
-            <span class="badge">Immediately Available to Join</span>
-            <h1>Shashank Chivane</h1>
-            <p class="subtitle">PMP Certified | Program & Delivery Leader | Digital Public Infrastructure | AI-Enabled Transformation</p>
-            <div class="contact-bar">
-                <a href="mailto:shashankchivane@gmail.com">📧 shashankchivane@gmail.com</a>
-                <a href="tel:+918275787476">📱 +91 8275787476</a>
-                <span>📍 Pune, India</span>
-                <a href="https://linkedin.com/in/shashankchivane" target="_blank">🔗 linkedin.com/in/shashankchivane</a>
-            </div>
+<!-- NAV -->
+<nav>
+  <span class="nav-brand">SC</span>
+  <div class="nav-links">
+    <a href="#" class="active" onclick="showPage('home',this)">Home</a>
+    <a href="#" onclick="showPage('projects',this)">Projects</a>
+    <a href="#" onclick="showPage('stats',this)">Stats</a>
+    <a href="#" onclick="showPage('learnings',this)">PM Learnings</a>
+  </div>
+  <span class="nav-badge">Open to Work</span>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════
+     HOME PAGE
+════════════════════════════════════════════════════ -->
+<div id="home" class="page active">
+
+  <div class="hero">
+    <div class="hero-eyebrow">Immediately Available · Pune, India</div>
+    <h1>Shashank Chivane</h1>
+    <p class="hero-sub">PMP Certified Program & Delivery Leader building national-scale digital infrastructure and AI-enabled platforms across India</p>
+    <div class="hero-contacts">
+      <a href="mailto:shashankchivane@gmail.com">✉ shashankchivane@gmail.com</a>
+      <a href="tel:+918275787476">📱 +91 82757 87476</a>
+      <a href="https://linkedin.com/in/shashankchivane" target="_blank">🔗 LinkedIn</a>
+    </div>
+    <div class="stats-strip">
+      <div class="stat-item"><div class="stat-num">10+</div><div class="stat-lbl">Years Experience</div></div>
+      <div class="stat-item"><div class="stat-num">5</div><div class="stat-lbl">National DPI Products</div></div>
+      <div class="stat-item"><div class="stat-num">3</div><div class="stat-lbl">Govt Projects</div></div>
+      <div class="stat-item"><div class="stat-num">15+</div><div class="stat-lbl">E-commerce Platforms</div></div>
+      <div class="stat-item"><div class="stat-num">10+</div><div class="stat-lbl">AI Initiatives</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Who I Am & What I Deliver</h2>
+    <div class="section-rule"></div>
+    <p class="summary-text">A results-first program leader with 10+ years building national-scale digital infrastructure in India. I own delivery from roadmap to production — managing budgets, cross-ministry stakeholder politics, vendor ecosystems, and 25+ person engineering teams simultaneously. My edge is combining structured program discipline with genuine fluency in AI/ML integration, cloud architecture, and consent-based data systems — making me effective both in boardrooms and sprint reviews.</p>
+
+    <div class="cap-grid">
+      <div class="cap-card"><h4>Program & Delivery Governance</h4><p>End-to-end lifecycle ownership across agile and waterfall models. Multi-workstream coordination, milestone tracking, RAID management, and quality assurance at scale.</p></div>
+      <div class="cap-card"><h4>Digital Public Infrastructure</h4><p>Architected and delivered national-scale consent-based data platforms: Agristack, Account Aggregator, ONDC Financial Services — navigating multi-ministry complexity.</p></div>
+      <div class="cap-card"><h4>AI-Enabled Transformation</h4><p>Deployed AI Suites using Claude (Anthropic) and GPT (OpenAI) for automated query triage, SLA management, and NLP interfaces over legacy systems.</p></div>
+      <div class="cap-card"><h4>Budget & Commercial Management</h4><p>Managed departmental budgets of ₹150Cr+. Structured vendor contracts, resource models, and cloud cost optimisation (40% AWS cost reduction, $2M on-time delivery).</p></div>
+      <div class="cap-card"><h4>Stakeholder & Change Management</h4><p>Led NIC, Ministry, RBI, and enterprise stakeholder alignment across competing institutional priorities — translating policy mandates into engineering deliverables.</p></div>
+      <div class="cap-card"><h4>Performance & Quality Engineering</h4><p>Embedded SLA monitoring and DevOps practices that drove 70% performance uplift on high-traffic platforms serving 12K concurrent users.</p></div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0">
+    <h2 class="section-title">Professional Experience</h2>
+    <div class="section-rule"></div>
+    <div class="exp-list">
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <span class="exp-title">Program Manager — Chief Digital Office</span>
+          <span class="exp-dates">Jan 2023 – Present</span>
         </div>
-    </header>
+        <div class="exp-company">Protean eGov Technologies Ltd., Pune</div>
+        <ul class="exp-bullets">
+          <li><strong>Agristack:</strong> Spearheaded centralised repository covering 40M farmer records; integrated crop management, yield prediction, and consent-based financial dashboards across the national agricultural ecosystem.</li>
+          <li><strong>Account Aggregator (RBI):</strong> Led India's financial data consolidation platform, enabling real-time secure data sharing across 15+ financial institutions under the national AA framework.</li>
+          <li><strong>AI Suites:</strong> Deployed Claude (Anthropic) and GPT (OpenAI) for process automation, NLP interfaces over legacy systems, and automated query triage — measurably reducing SLA breach rates.</li>
+          <li><strong>ONDC Open Finance:</strong> Led discovery and comparison platform for loans, insurance, and investment products across multiple lenders.</li>
+          <li><strong>Budget Ownership:</strong> Drafted and maintained annual budget of ₹150Cr+ across all digital initiative workstreams.</li>
+        </ul>
+      </div>
 
-    <main>
-        <!-- Metrics Section -->
-        <div class="metrics-grid">
-            <div class="metric-card"><span class="metric-num">10+</span><span class="metric-label">Years Experience</span></div>
-            <div class="metric-card"><span class="metric-num">15+</span><span class="metric-label">E-commerce Platforms</span></div>
-            <div class="metric-card"><span class="metric-num">5</span><span class="metric-label">National DPI Products</span></div>
-            <div class="metric-card"><span class="metric-num">3</span><span class="metric-label">Govt Projects (Central/State)</span></div>
-            <div class="metric-card"><span class="metric-num">10+</span><span class="metric-label">AI Initiatives Delivered</span></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <span class="exp-title">Technical Project Manager</span>
+          <span class="exp-dates">Apr 2021 – Jan 2023</span>
         </div>
+        <div class="exp-company">QED42, Pune</div>
+        <ul class="exp-bullets">
+          <li><strong>Knowledge@UNICEF:</strong> Built Drupal 9 CMS for thousands of global contributors — 45% efficiency gain, retrieval time cut from 30 min to 3 min. Delivered $2M on time.</li>
+          <li><strong>Rajasthan Patrika:</strong> AWS migration for 12,000 concurrent users; 70% performance uplift, 150% readership growth, 40% cost reduction.</li>
+          <li><strong>Canon India Marketplace:</strong> Photographer discovery and booking platform with secure communication features.</li>
+        </ul>
+      </div>
 
-        <!-- About Section -->
-        <section id="about">
-            <h2>Who I Am & What I Deliver</h2>
-            <p style="font-size: 1.1rem; color: var(--text-main);">A results-first program leader with 10+ years building national-scale digital infrastructure in India. I own delivery from roadmap to production managing budgets, cross-ministry stakeholder politics, vendor ecosystems, and 25+ person engineering teams simultaneously. My edge is combining structured program discipline with a genuine fluency in AI/ML integration, cloud architecture, and consent-based data systems—making me effective both in boardrooms and sprint reviews.</p>
-        </section>
+      <div class="exp-card">
+        <div class="exp-header">
+          <span class="exp-title">Sr. Associate Project Manager</span>
+          <span class="exp-dates">May 2019 – Apr 2021</span>
+        </div>
+        <div class="exp-company">Media.net, Mumbai</div>
+        <ul class="exp-bullets">
+          <li>Built company-wide PPM system tracking 50+ concurrent initiatives across 5 offices — reduced project overruns by 25%.</li>
+          <li>Reported directly to Company President; established PMO best practices adopted organisation-wide.</li>
+        </ul>
+      </div>
 
-        <!-- Capabilities Section -->
-        <section id="capabilities">
-            <h2>Core Capabilities</h2>
-            <div class="capabilities-grid">
-                <div class="capability-item">
-                    <h3>Program & Delivery Governance</h3>
-                    <p>End-to-end lifecycle ownership across agile and waterfall delivery models. Multi-workstream coordination, milestone tracking, RAID management, and quality assurance at scale.</p>
-                </div>
-                <div class="capability-item">
-                    <h3>Digital Public Infrastructure (DPI)</h3>
-                    <p>Architected and delivered national-scale consent-based data platforms: Agristack, Account Aggregator, ONDC Financial Services navigating multi-ministry jurisdictional complexity.</p>
-                </div>
-                <div class="capability-item">
-                    <h3>Stakeholder & Change Management</h3>
-                    <p>Led NIC, Ministry, RBI, and enterprise stakeholder alignment across competing institutional priorities. Skilled at translating policy mandates into engineering deliverables.</p>
-                </div>
-                <div class="capability-item">
-                    <h3>DevOps & Technical Foundations</h3>
-                    <p>CI/CD pipeline oversight (GitHub Actions, Jenkins), database scripting (SQL, schema migrations), Docker/Kubernetes familiarity, and release governance across cloud-native and hybrid infrastructure.</p>
-                </div>
-                <div class="capability-item">
-                    <h3>AI-Enabled Process Optimisation</h3>
-                    <p>Delivery of AI Suites using Claude (Anthropic) and GPT (OpenAI) for automated query triage, SLA management, and NLP interfaces over legacy systems reducing manual processing overhead.</p>
-                </div>
-                <div class="capability-item">
-                    <h3>Budget & Commercial Management</h3>
-                    <p>Managed departmental budgets of 150Cr+. Structured vendor contracts, resource models, and cloud cost optimisation (40% AWS cost reduction, $2M project delivered on-time).</p>
-                </div>
-                <div class="capability-item">
-                    <h3>Performance & Quality Engineering</h3>
-                    <p>Embedded SLA monitoring, automated testing pipelines, and DevOps practices that drove 70% performance uplift on high-traffic platforms (12K concurrent users).</p>
-                </div>
-                <div class="capability-item">
-                    <h3>Professional Services & Enterprise Delivery</h3>
-                    <p>Led end-to-end implementation engagements for government and enterprise clients from infrastructure provisioning and system integration to go-live readiness and hypercare support.</p>
-                </div>
-            </div>
-        </section>
+      <div class="exp-card">
+        <div class="exp-header">
+          <span class="exp-title">Project Manager</span>
+          <span class="exp-dates">Nov 2017 – May 2019</span>
+        </div>
+        <div class="exp-company">Iksula, Mumbai</div>
+        <ul class="exp-bullets">
+          <li>Led 4 Agile pods (40+ engineers) delivering 12 projects with 98% on-time completion for Dubai-based luxury retail clients.</li>
+          <li>Mentored junior PMs and drove process improvement audits; enabled last-mile marketplace integrations at scale.</li>
+        </ul>
+      </div>
 
-        <!-- Experience Section -->
-        <section id="experience">
-            <h2>Professional Experience</h2>
-            
-            <div class="timeline-item">
-                <div class="job-meta">
-                    <div>
-                        <span class="job-title">Program Manager - Chief Digital Office</span><br>
-                        <span class="company">Protean eGov Technologies Ltd., Pune</span>
-                    </div>
-                    <span class="date">Jan 2023 - Present</span>
-                </div>
-                <ul class="bullet-list">
-                    <li><strong>Agristack (Agricultural DPI):</strong> Spearheaded centralised repository covering 40M farmer records; integrated crop management, yield prediction, and consent-based financial assistance dashboards across the national agricultural ecosystem.</li>
-                    <li><strong>Professional Services & Infrastructure Delivery:</strong> Led end-to-end implementation engagements for government clients managing delivery across cloud-hosted AWS environments, infrastructure provisioning, and deployment pipelines from dev through to production.</li>
-                    <li><strong>Datacentre & Cloud Transformation:</strong> Guided cloud-native DPI platform architecture including data residency, DR planning, and infrastructure scaling—ensuring compliance with government security and availability mandates.</li>
-                    <li><strong>Account Aggregator (RBI-regulated):</strong> Led India's financial data consolidation DPI platform with consent-architecture, enabling secure real-time data sharing across financial institutions under the national AA framework.</li>
-                    <li><strong>Infrastructure & Integration Delivery (AA):</strong> Managed delivery of API gateway infrastructure, secure data exchange pipelines, and system integration across 15+ financial institutions coordinating database scripting, environment configuration, and CI/CD deployments with vendor teams.</li>
-                    <li><strong>AI Suites:</strong> Deployed AI tools using Claude (Anthropic) and GPT (OpenAI) across process automation, NLP-based legacy interfaces, and automated query triage measurably reducing SLA breach rates.</li>
-                    <li><strong>ONDC Open Finance App:</strong> Led discovery and comparison platform for loans, insurance, and investment products across multiple lenders on the ONDC network.</li>
-                    <li><strong>Departmental Budget Ownership:</strong> Drafted and maintained annual budget of 150Cr+ across all digital initiative workstreams.</li>
-                </ul>
-            </div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <span class="exp-title">Project Coordinator</span>
+          <span class="exp-dates">Aug 2016 – Nov 2017</span>
+        </div>
+        <div class="exp-company">Crimson Interactive, Pune</div>
+        <ul class="exp-bullets">
+          <li>Coordinated end-to-end localisation and publishing workflows across multiple concurrent editorial projects.</li>
+          <li>Initiated automation scripts for editorial tracking — reducing manual status-update cycles and improving pipeline visibility.</li>
+        </ul>
+      </div>
 
-            <div class="timeline-item">
-                <div class="job-meta">
-                    <div>
-                        <span class="job-title">Technical Project Manager</span><br>
-                        <span class="company">QED42</span>
-                    </div>
-                    <span class="date">Apr 2021 - Jan 2023</span>
-                </div>
-                <ul class="bullet-list">
-                    <li><strong>Knowledge@UNICEF:</strong> Built Drupal 9 CMS platform for 1,000s of global contributors - increased content collaboration efficiency by 45% and cut knowledge retrieval time from 30 min to 3 min. Delivered $2M budget on time.</li>
-                    <li><strong>Rajasthan Patrika Digital Transformation:</strong> Migrated stack to JS, optimised AWS infrastructure for 12,000 concurrent users, improved site performance by 70%, boosted readership by 150%, and reduced infrastructure costs by 40%.</li>
-                    <li><strong>Canon India Marketplace:</strong> Built photographer discovery and booking platform with secure client communication features.</li>
-                </ul>
-            </div>
+    </div>
+  </div>
 
-            <div class="timeline-item">
-                <div class="job-meta">
-                    <div>
-                        <span class="job-title">Sr. Associate Project Manager</span><br>
-                        <span class="company">Media.net</span>
-                    </div>
-                    <span class="date">May 2019 - Apr 2021</span>
-                </div>
-                <ul class="bullet-list">
-                    <li>Built company-wide PPM system tracking 50+ concurrent initiatives across 5 internal offices; reduced project overruns by 25% through proactive risk management.</li>
-                    <li>Reported directly to Company President, established PMO best practices adopted organisation-wide.</li>
-                </ul>
-            </div>
+  <div class="section" style="padding-top:0">
+    <h2 class="section-title">Skills & Toolset</h2>
+    <div class="section-rule"></div>
+    <div class="skill-grid">
+      <div class="skill-group">
+        <h4>Strategic</h4>
+        <div class="skill-tags">
+          <span class="tag">Portfolio Management</span><span class="tag">Digital Transformation</span><span class="tag">Risk Management</span><span class="tag">Vendor Management</span><span class="tag">OKR/KPI</span><span class="tag">Professional Services</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Technical</h4>
+        <div class="skill-tags">
+          <span class="tag">AI/ML (LLM, RAG)</span><span class="tag">AWS</span><span class="tag">CI/CD</span><span class="tag">Docker/K8s</span><span class="tag">SQL</span><span class="tag">Consent Architecture</span><span class="tag">Drupal</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Agile & Frameworks</h4>
+        <div class="skill-tags">
+          <span class="tag">Scrum</span><span class="tag">SAFe</span><span class="tag">AgilePM</span><span class="tag">PI Planning</span><span class="tag">Sprint Planning</span><span class="tag">Retrospectives</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Tools</h4>
+        <div class="skill-tags">
+          <span class="tag">Jira</span><span class="tag">MS Project</span><span class="tag">Confluence</span><span class="tag">GitHub Actions</span><span class="tag">Jenkins</span><span class="tag">Power BI</span><span class="tag">Notion</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
-            <div class="timeline-item">
-                <div class="job-meta">
-                    <div>
-                        <span class="job-title">Project Manager</span><br>
-                        <span class="company">Iksula</span>
-                    </div>
-                    <span class="date">Nov 2017 - May 2019</span>
-                </div>
-                <ul class="bullet-list">
-                    <li>Led 4 Agile pods (40+ engineers) delivering 12 projects with 98% on-time completion for Dubai-based luxury retail clients.</li>
-                    <li>Mentored junior PMs and drove process improvement audits; enabled last-mile marketplace integrations at scale.</li>
-                </ul>
-            </div>
+  <div class="section" style="padding-top:0">
+    <h2 class="section-title">Education & Certifications</h2>
+    <div class="section-rule"></div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-degree">M.Sc. Project Management</div>
+        <div class="edu-school">SKEMA Business School</div>
+        <div class="edu-year">Paris, France · 2015–2016</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">B.E. Engineering</div>
+        <div class="edu-school">KITS, Maharashtra</div>
+        <div class="edu-year">India · 2010–2014</div>
+      </div>
+    </div>
+    <div class="cert-grid" style="margin-top:1.2rem">
+      <div class="cert-badge">🏅 PMP® — PMI</div>
+      <div class="cert-badge">🏅 AgilePM — PMI</div>
+      <div class="cert-badge">🏅 CSPO — Scrum Alliance</div>
+    </div>
+  </div>
 
-            <div class="timeline-item">
-                <div class="job-meta">
-                    <div>
-                        <span class="job-title">Project Coordinator</span><br>
-                        <span class="company">Crimson Interactive</span>
-                    </div>
-                    <span class="date">Aug 2016 - Nov 2017</span>
-                </div>
-                <ul class="bullet-list">
-                    <li>Facilitated end-to-end localization and publishing workflows across multiple concurrent editorial projects, coordinating between authors, translators, and production teams.</li>
-                    <li>Initiated automation scripts for editorial tracking and process improvement—reducing manual status-update cycles and improving turnaround visibility across the publishing pipeline.</li>
-                    <li>Supported project scheduling, resource allocation, and delivery tracking building foundational project coordination skills across a fast-paced, deadline-driven environment.</li>
-                </ul>
-            </div>
-        </section>
+  <footer>© 2026 Shashank Chivane · <a href="mailto:shashankchivane@gmail.com">shashankchivane@gmail.com</a> · All Rights Reserved</footer>
+</div>
 
-        <!-- Skills Section -->
-        <section id="skills">
-            <h2>Skills & Toolset</h2>
-            <div class="skills-container">
-                <div class="skills-group">
-                    <h3>Strategic Capabilities</h3>
-                    <div class="tags">
-                        <span class="tag">Portfolio & Programme Mgmt</span>
-                        <span class="tag">Digital Transformation Strategy</span>
-                        <span class="tag">Risk & Issue Management</span>
-                        <span class="tag">Vendor & Contract Management</span>
-                        <span class="tag">OKR/KPI Frameworks</span>
-                    </div>
-                </div>
-                <div class="skills-group">
-                    <h3>Technical Fluency</h3>
-                    <div class="tags">
-                        <span class="tag">AI/ML Integration (LLM, RAG)</span>
-                        <span class="tag">Cloud Infrastructure (AWS)</span>
-                        <span class="tag">Agile/Scrum/DevOps</span>
-                        <span class="tag">CI/CD Pipelines (GitHub Actions)</span>
-                        <span class="tag">Database Scripting (SQL)</span>
-                        <span class="tag">Data Architecture & Consent Mgmt</span>
-                        <span class="tag">CMS Platforms (Drupal)</span>
-                    </div>
-                </div>
-                <div class="skills-group">
-                    <h3>Leadership & Delivery</h3>
-                    <div class="tags">
-                        <span class="tag">Cross-functional Team Leadership (25+)</span>
-                        <span class="tag">Stakeholder Alignment (Govt/Enterprise)</span>
-                        <span class="tag">Budget Ownership (150Cr+)</span>
-                        <span class="tag">Professional Services Delivery</span>
-                        <span class="tag">Agile Coaching & PM Mentoring</span>
-                        <span class="tag">Change & Transformation Management</span>
-                    </div>
-                </div>
-                <div class="skills-group">
-                    <h3>Tools & Software</h3>
-                    <div class="tags">
-                        <span class="tag">Jira</span><span class="tag">Microsoft Project</span><span class="tag">Confluence</span><span class="tag">Trello / Asana</span><span class="tag">Monday.com</span>
-                        <span class="tag">GitHub Actions</span><span class="tag">Jenkins</span><span class="tag">Docker / Kubernetes</span><span class="tag">AWS (EC2, S3, RDS, CloudWatch)</span><span class="tag">Postman</span>
-                        <span class="tag">MS Excel / PowerPoint</span><span class="tag">Google Workspace</span><span class="tag">Power BI</span><span class="tag">Slack / MS Teams</span><span class="tag">Notion</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- ═══════════════════════════════════════════════════
+     PROJECTS PAGE
+════════════════════════════════════════════════════ -->
+<div id="projects" class="page">
+  <div class="section">
+    <h2 class="section-title">Project Portfolio</h2>
+    <div class="section-rule"></div>
+    <p style="font-size:.9rem;color:var(--mid);margin-bottom:1.5rem">10+ years, national-scale DPI, enterprise platforms, and AI initiatives. Click any project for full detail.</p>
 
-        <!-- Education & Credentials -->
-        <section id="education">
-            <div class="edu-cert-grid">
-                <div>
-                    <h2>Education</h2>
-                    <div style="margin-bottom: 1rem;">
-                        <strong>M.Sc. Project Management</strong><br>
-                        <span style="color: var(--text-light)">SKEMA Business School, Paris, France | 2015-2016</span>
-                    </div>
-                    <div>
-                        <strong>B.E. Engineering</strong><br>
-                        <span style="color: var(--text-light)">KITS, Maharashtra, India | 2010-2014</span>
-                    </div>
-                </div>
-                <div>
-                    <h2>Certifications</h2>
-                    <div class="tags" style="margin-top: 0.5rem;">
-                        <span class="tag" style="border-color: var(--secondary); background: rgba(37,99,235,0.05);">PMP® - Project Management Professional</span>
-                        <span class="tag">AgilePM - PMI</span>
-                        <span class="tag">CSPO - Certified Scrum Product Owner</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+    <div class="proj-filter">
+      <button class="filter-btn active" onclick="filterProj('all',this)">All</button>
+      <button class="filter-btn" onclick="filterProj('dpi',this)">Digital Public Infrastructure</button>
+      <button class="filter-btn" onclick="filterProj('enterprise',this)">Enterprise</button>
+      <button class="filter-btn" onclick="filterProj('ai',this)">AI / Automation</button>
+      <button class="filter-btn" onclick="filterProj('pmo',this)">PMO</button>
+    </div>
 
-    <footer>
-        <p>&copy; 2026 Shashank Chivane. All Rights Reserved. Managed independently on GitHub Pages.</p>
-    </footer>
+    <div class="proj-grid" id="projGrid">
 
+      <div class="proj-card" data-cat="dpi" onclick="openModal('agristack')">
+        <div class="proj-card-top">
+          <div class="proj-type dpi">DPI · Government</div>
+          <div class="proj-name">Agristack — National Agricultural Registry</div>
+          <div class="proj-org">Protean eGov · Ministry of Agriculture, India</div>
+          <div class="proj-desc">Centralised digital identity and data platform for India's farming community — covering 40M farmer records, consent-based data sharing, and integrated dashboards for crop management and financial assistance.</div>
+        </div>
+        <div class="proj-metrics">
+          <span class="metric-chip">40M Farmer Records</span>
+          <span class="metric-chip">25+ Person Team</span>
+          <span class="metric-chip">Multi-Ministry</span>
+          <span class="metric-chip">NIC / MoA</span>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="dpi" onclick="openModal('aa')">
+        <div class="proj-card-top">
+          <div class="proj-type dpi">DPI · RBI Regulated</div>
+          <div class="proj-name">Account Aggregator Framework</div>
+          <div class="proj-org">Protean eGov · Reserve Bank of India</div>
+          <div class="proj-desc">India's financial data consolidation platform enabling secure, consent-based real-time data sharing across 15+ financial institutions — built under the RBI-regulated Account Aggregator framework.</div>
+        </div>
+        <div class="proj-metrics">
+          <span class="metric-chip">15+ FIs Integrated</span>
+          <span class="metric-chip">RBI Regulated</span>
+          <span class="metric-chip">Sprint Predictability 88%</span>
+          <span class="metric-chip">Consent Architecture</span>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="dpi" onclick="openModal('ondc')">
+        <div class="proj-card-top">
+          <div class="proj-type dpi">DPI · Open Network</div>
+          <div class="proj-name">ONDC Open Finance App</div>
+          <div class="proj-org">Protean eGov · ONDC Network</div>
+          <div class="proj-desc">Discovery and comparison platform for financial products — loans, insurance, and investments — across multiple lenders and providers on India's Open Network for Digital Commerce.</div>
+        </div>
+        <div class="proj-metrics">
+          <span class="metric-chip">Multi-lender</span>
+          <span class="metric-chip">ONDC Protocol</span>
+          <span class="metric-chip">Loans · Insurance · Investments</span>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="ai" onclick="openModal('aisuites')">
+        <div class="proj-card-top">
+          <div class="proj-type ai">AI · Automation</div>
+          <div class="proj-name">AI Suites — LLM-Powered Process Automation</div>
+          <div class="proj-org">Protean eGov · Chief Digital Office</div>
+          <div class="proj-desc">Three-workstream AI deployment using Claude (Anthropic) and GPT (OpenAI): automated query triage, NLP interfaces over legacy government systems, and SLA monitoring — reducing manual overhead at scale.</div>
+        </div>
+        <div class="proj-metrics">
+          <span class="metric-chip">Claude + GPT</span>
+          <span class="metric-chip">SLA Breach Reduction</span>
+          <span class="metric-chip">NLP over Legacy Systems</span>
+          <span class="metric-chip">10+ AI Initiatives</span>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="enterprise" onclick="openModal('unicef')">
+        <div class="proj-card-top">
+          <div class="proj-type enterprise">Enterprise · CMS</div>
+          <div class="proj-name">Knowledge@UNICEF</div>
+          <div class="proj-org">QED42 · UNICEF Global</div>
+          <div class="proj-desc">Drupal 9 knowledge management platform built for thousands of global contributors — dramatically improving content collaboration and knowledge retrieval speed across UNICEF's worldwide operations.</div>
+        </div>
+        <div class="proj-metrics">
+          <span class="metric-chip">$2M On Time</span>
+          <span class="metric-chip">45% Efficiency Gain</span>
+          <span class="metric-chip">30 min → 3 min retrieval</span>
+          <span class="metric-chip">Global Scale</span>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="enterprise" onclick="openModal('patrika')">
+        <div class="proj-card-top">
+          <div class="proj-type enterprise">Enterprise · Cloud Migration</div>
+          <div class="proj-name">Rajasthan Patrika Digital Transformation</div>
+          <div class="proj-org">QED42 · Rajasthan Patrika</div>
+          <div class="proj-desc">Full-stack migration from legacy infrastructure to JS-based stack on optimised AWS — enabling 12,000 concurrent users, 70% performance improvement, and 40% infrastructure cost reduction for one of India's largest regional media groups.</div>
+        </div>
+        <div class="proj-metrics">
+          <span class="metric-chip">12K Concurrent Users</span>
+          <span class="metric-chip">70% Perf Uplift</span>
+          <span class="metric-chip">40% Cost Reduction</span>
+          <span class="metric-chip">150% Readership Growth</span>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="pmo" onclick="openModal('medianet')">
+        <div class="proj-card-top">
+          <div class="proj-type pmo">PMO · Portfolio</div>
+          <div class="proj-name">Enterprise PMO — Media.net</div>
+          <div class="proj-org">Media.net · Mumbai</div>
+          <div class="proj-desc">Built and scaled a company-wide Project Portfolio Management system from scratch, tracking 50+ concurrent initiatives across 5 global offices — reporting directly to the Company President and establishing PMO best practices org-wide.</div>
+        </div>
+        <div class="proj-metrics">
+          <span class="metric-chip">50+ Concurrent Projects</span>
+          <span class="metric-chip">25% Overrun Reduction</span>
+          <span class="metric-chip">5 Global Offices</span>
+          <span class="metric-chip">Exec Reporting</span>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="enterprise" onclick="openModal('iksula')">
+        <div class="proj-card-top">
+          <div class="proj-type enterprise">Enterprise · E-commerce</div>
+          <div class="proj-name">Luxury Retail E-commerce Platform Portfolio</div>
+          <div class="proj-org">Iksula · Dubai-based Retail Clients</div>
+          <div class="proj-desc">Led 4 Agile delivery pods across 12 projects for Dubai-based luxury retail clients — last-mile marketplace integrations, platform builds, and continuous delivery with 98% on-time completion.</div>
+        </div>
+        <div class="proj-metrics">
+          <span class="metric-chip">12 Projects</span>
+          <span class="metric-chip">98% On-time</span>
+          <span class="metric-chip">40+ Engineers</span>
+          <span class="metric-chip">4 Agile Pods</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer>© 2026 Shashank Chivane · All Rights Reserved</footer>
+</div>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modalBg" onclick="closeModalOnBg(event)">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     STATS PAGE
+════════════════════════════════════════════════════ -->
+<div id="stats" class="page">
+  <div class="section">
+    <h2 class="section-title">Delivery at a Glance</h2>
+    <div class="section-rule"></div>
+
+    <div class="big-stats">
+      <div class="big-stat"><div class="big-stat-num">10+</div><div class="big-stat-lbl">Years of Delivery Leadership</div></div>
+      <div class="big-stat"><div class="big-stat-num">₹150Cr+</div><div class="big-stat-lbl">Annual Budget Managed</div></div>
+      <div class="big-stat"><div class="big-stat-num">40M</div><div class="big-stat-lbl">Farmer Records (Agristack)</div></div>
+      <div class="big-stat"><div class="big-stat-num">$2M</div><div class="big-stat-lbl">International Project On-Time</div></div>
+      <div class="big-stat"><div class="big-stat-num">98%</div><div class="big-stat-lbl">On-time Project Delivery (Iksula)</div></div>
+      <div class="big-stat"><div class="big-stat-num">88%</div><div class="big-stat-lbl">Sprint Predictability (from 65%)</div></div>
+    </div>
+
+    <h3 style="font-family:'Fraunces',serif;color:var(--navy);margin-bottom:.4rem;font-size:1.2rem">Impact by the Numbers</h3>
+    <div class="section-rule" style="margin-bottom:1.5rem"></div>
+    <div class="bar-chart">
+      <div class="bar-row">
+        <div class="bar-label">Performance Uplift</div>
+        <div class="bar-track"><div class="bar-fill" style="width:70%"><div class="bar-val">70% — Rajasthan Patrika</div></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Cost Reduction (AWS)</div>
+        <div class="bar-track"><div class="bar-fill" style="width:40%"><div class="bar-val">40%</div></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Project Overrun Reduction</div>
+        <div class="bar-track"><div class="bar-fill" style="width:25%"><div class="bar-val">25% — Media.net PMO</div></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Efficiency Gain (UNICEF)</div>
+        <div class="bar-track"><div class="bar-fill" style="width:45%"><div class="bar-val">45%</div></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Readership Growth</div>
+        <div class="bar-track"><div class="bar-fill" style="width:100%"><div class="bar-val">150% — Rajasthan Patrika</div></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Sprint Predictability</div>
+        <div class="bar-track"><div class="bar-fill" style="width:88%"><div class="bar-val">65% → 88%</div></div></div>
+      </div>
+    </div>
+
+    <div style="margin-top:3rem">
+      <h3 style="font-family:'Fraunces',serif;color:var(--navy);margin-bottom:.4rem;font-size:1.2rem">Delivery Portfolio Snapshot</h3>
+      <div class="section-rule" style="margin-bottom:1rem"></div>
+      <div class="delivery-grid">
+        <div class="del-card"><div class="del-icon">🏛️</div><div class="del-num">5</div><div class="del-lbl">National DPI Products shipped</div></div>
+        <div class="del-card"><div class="del-icon">🤖</div><div class="del-num">10+</div><div class="del-lbl">AI initiatives delivered</div></div>
+        <div class="del-card"><div class="del-icon">🛍️</div><div class="del-num">15+</div><div class="del-lbl">E-commerce platforms managed</div></div>
+        <div class="del-card"><div class="del-icon">🏦</div><div class="del-num">15+</div><div class="del-lbl">Financial institutions integrated</div></div>
+        <div class="del-card"><div class="del-icon">👥</div><div class="del-num">25+</div><div class="del-lbl">Engineers led concurrently</div></div>
+        <div class="del-card"><div class="del-icon">🗂️</div><div class="del-num">50+</div><div class="del-lbl">Concurrent projects tracked (PMO)</div></div>
+        <div class="del-card"><div class="del-icon">🌐</div><div class="del-num">12K</div><div class="del-lbl">Peak concurrent users served</div></div>
+        <div class="del-card"><div class="del-icon">📋</div><div class="del-num">3</div><div class="del-lbl">Certifications: PMP, AgilePM, CSPO</div></div>
+      </div>
+    </div>
+
+    <div style="margin-top:3rem">
+      <h3 style="font-family:'Fraunces',serif;color:var(--navy);margin-bottom:.4rem;font-size:1.2rem">Career Timeline</h3>
+      <div class="section-rule" style="margin-bottom:1.5rem"></div>
+      <div class="timeline-viz">
+        <div class="tl-item"><div class="tl-year">2023 – Present</div><div class="tl-role">Program Manager — Chief Digital Office</div><div class="tl-co">Protean eGov Technologies Ltd.</div></div>
+        <div class="tl-item"><div class="tl-year">2021 – 2023</div><div class="tl-role">Technical Project Manager</div><div class="tl-co">QED42</div></div>
+        <div class="tl-item"><div class="tl-year">2019 – 2021</div><div class="tl-role">Sr. Associate Project Manager</div><div class="tl-co">Media.net</div></div>
+        <div class="tl-item"><div class="tl-year">2017 – 2019</div><div class="tl-role">Project Manager</div><div class="tl-co">Iksula</div></div>
+        <div class="tl-item"><div class="tl-year">2016 – 2017</div><div class="tl-role">Project Coordinator</div><div class="tl-co">Crimson Interactive</div></div>
+        <div class="tl-item"><div class="tl-year">2015 – 2016</div><div class="tl-role">M.Sc. Project Management</div><div class="tl-co">SKEMA Business School, Paris</div></div>
+      </div>
+    </div>
+
+  </div>
+  <footer>© 2026 Shashank Chivane · All Rights Reserved</footer>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     PM LEARNINGS PAGE
+════════════════════════════════════════════════════ -->
+<div id="learnings" class="page">
+  <div class="section">
+    <h2 class="section-title">PM Learnings</h2>
+    <div class="section-rule"></div>
+    <p class="learnings-intro">Ten years of building at national scale, managing governments, regulators, and engineering teams — across digital infrastructure, AI deployments, and enterprise platforms. These are the lessons that actually shaped how I work, not the textbook version.</p>
+
+    <div class="learning-category">
+      <div class="cat-header"><span class="cat-icon">🏛️</span><span class="cat-title">Working with Government & Regulators</span></div>
+      <div class="learning-cards">
+        <div class="learning-card">
+          <div class="learning-num">Lesson 01</div>
+          <div class="learning-title">Jurisdiction is the real risk register</div>
+          <div class="learning-body">On Agristack, the most complex issues weren't technical — they were jurisdictional. NIC owned infrastructure, the Ministry owned policy, and state governments owned farmer data. Mapping who owns what decision before writing a single line of code saved months of rework. Your RAID log needs a jurisdiction column.</div>
+          <span class="learning-tag">DPI · Stakeholder Management</span>
+        </div>
+        <div class="learning-card">
+          <div class="learning-num">Lesson 02</div>
+          <div class="learning-title">Policy mandates are fixed; timelines are negotiable</div>
+          <div class="learning-body">Working under RBI regulation on the Account Aggregator framework taught me that the compliance requirement never moves — but how and when you sequence delivery to meet it usually can. Identifying the non-negotiable constraint early lets you protect it while creating flexibility everywhere else.</div>
+          <span class="learning-tag">Regulatory · Schedule Management</span>
+        </div>
+        <div class="learning-card">
+          <div class="learning-num">Lesson 03</div>
+          <div class="learning-title">Build allies before you need them</div>
+          <div class="learning-body">In multi-ministry programmes, stakeholder conflict arrives without notice. The relationships I had built through routine alignment calls — not crisis escalations — were the ones that unblocked delivery. Invest in relationships when there's no agenda, and you'll have credit when there is one.</div>
+          <span class="learning-tag">Government Delivery · Influence</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="learning-category">
+      <div class="cat-header"><span class="cat-icon">⚙️</span><span class="cat-title">Delivery Mechanics & Agile in Practice</span></div>
+      <div class="learning-cards">
+        <div class="learning-card">
+          <div class="learning-num">Lesson 04</div>
+          <div class="learning-title">Sprint predictability is a lagging indicator</div>
+          <div class="learning-body">When I took over the Account Aggregator delivery, sprint completion was at 65%. The problem wasn't team velocity — it was scope leaking into sprints mid-cycle from integration dependencies we hadn't surfaced. Fixing the dependency mapping improved predictability to 88% without changing team size or working hours.</div>
+          <span class="learning-tag">Agile · Metrics</span>
+        </div>
+        <div class="learning-card">
+          <div class="learning-num">Lesson 05</div>
+          <div class="learning-title">RAID logs rot if no one owns them</div>
+          <div class="learning-body">Every project has a RAID log. Most have a RAID log that was last updated six weeks ago. I learned to assign a specific action owner and a hard review date to every item — not just a category. A risk without an owner is just a worry written down.</div>
+          <span class="learning-tag">Risk Management · Process</span>
+        </div>
+        <div class="learning-card">
+          <div class="learning-num">Lesson 06</div>
+          <div class="learning-title">Estimation accuracy improves with decomposition depth</div>
+          <div class="learning-body">The most consistent source of overruns I saw at Media.net wasn't bad estimation — it was estimating at the wrong level of granularity. Tasks estimated at story level were 3× more accurate than tasks estimated at epic level. Getting teams to decompose before estimating is the PM's job, not the BA's.</div>
+          <span class="learning-tag">PMO · Estimation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="learning-category">
+      <div class="cat-header"><span class="cat-icon">🤖</span><span class="cat-title">Delivering AI & Emerging Tech</span></div>
+      <div class="learning-cards">
+        <div class="learning-card">
+          <div class="learning-num">Lesson 07</div>
+          <div class="learning-title">AI projects fail at integration, not at the model</div>
+          <div class="learning-body">Deploying LLM-based tools at Protean, the hardest part was never the AI output quality — it was connecting model responses to legacy system inputs and outputs with no clean API contract. Treating the integration layer as a first-class deliverable (not an afterthought) is what made AI Suites actually ship.</div>
+          <span class="learning-tag">AI/ML · Systems Integration</span>
+        </div>
+        <div class="learning-card">
+          <div class="learning-num">Lesson 08</div>
+          <div class="learning-title">Set SLA expectations before the first demo</div>
+          <div class="learning-body">Stakeholders who see an AI demo expect production performance immediately. On triage automation, setting explicit SLA thresholds before any demo — and explaining the training data dependency — meant we had a shared definition of "working" that wasn't just "as good as the demo."</div>
+          <span class="learning-tag">AI Deployment · Expectation Management</span>
+        </div>
+        <div class="learning-card">
+          <div class="learning-num">Lesson 09</div>
+          <div class="learning-title">Human fallback is not optional</div>
+          <div class="learning-body">Every AI-automated workflow we deployed had a manual escalation path built in from day one — not bolted on after the first incident. Government stakeholders, in particular, need to see that no process is 100% delegated to a model. Designing for human-in-the-loop from the start made approvals faster, not slower.</div>
+          <span class="learning-tag">AI Governance · Risk</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="learning-category">
+      <div class="cat-header"><span class="cat-icon">👥</span><span class="cat-title">Teams, Culture & Leadership</span></div>
+      <div class="learning-cards">
+        <div class="learning-card">
+          <div class="learning-num">Lesson 10</div>
+          <div class="learning-title">Context is more motivating than targets</div>
+          <div class="learning-body">Managing 25+ person teams across DPI programmes, I noticed that engineers who understood why Agristack mattered — 40M farmers, consent-based credit access — worked differently from those who just knew their sprint tickets. Connecting the work to the outcome isn't a morale exercise, it's a delivery strategy.</div>
+          <span class="learning-tag">Leadership · Team Dynamics</span>
+        </div>
+        <div class="learning-card">
+          <div class="learning-num">Lesson 11</div>
+          <div class="learning-title">Mentoring junior PMs compounds over time</div>
+          <div class="learning-body">At Iksula, investing time in the junior PMs on my team meant that by month six, I was reviewing their RAID logs rather than writing them myself. The leverage from developing people is higher than any process optimisation. A PM who only manages up has a ceiling; one who develops the team below has none.</div>
+          <span class="learning-tag">Coaching · Delegation</span>
+        </div>
+        <div class="learning-card">
+          <div class="learning-num">Lesson 12</div>
+          <div class="learning-title">The PM sets the communication default</div>
+          <div class="learning-body">Whatever frequency and format the PM defaults to for status updates becomes the team's communication culture. At Media.net, switching from ad-hoc Slack messages to a structured weekly async update reduced "what's the status?" interruptions by more than half. The template matters less than the consistency.</div>
+          <span class="learning-tag">Communication · PMO Culture</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="learning-category">
+      <div class="cat-header"><span class="cat-icon">☁️</span><span class="cat-title">Cloud, Infrastructure & Technical PMs</span></div>
+      <div class="learning-cards">
+        <div class="learning-card">
+          <div class="learning-num">Lesson 13</div>
+          <div class="learning-title">Cost optimisation needs a PM, not just an architect</div>
+          <div class="learning-body">The 40% AWS cost reduction on Rajasthan Patrika didn't happen because the architect suddenly had a good idea. It happened because I scheduled a dedicated cost review sprint, created visibility into the billing breakdown, and made cost a tracked delivery metric alongside performance. Engineers optimise what PMs measure.</div>
+          <span class="learning-tag">Cloud · Cost Management</span>
+        </div>
+        <div class="learning-card">
+          <div class="learning-num">Lesson 14</div>
+          <div class="learning-title">Load testing is a project milestone, not a QA task</div>
+          <div class="learning-body">On the Rajasthan Patrika migration, performance at 12,000 concurrent users only held because load testing was a gated milestone — not something left to QA the week before go-live. Technical PMs need to own the definition of done for non-functional requirements, or they quietly disappear from scope.</div>
+          <span class="learning-tag">Performance · QA · Delivery</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <footer>© 2026 Shashank Chivane · All Rights Reserved</footer>
+</div>
+
+<!-- ═══════════════ SCRIPTS ═══════════════ -->
+<script>
+  // ── Navigation ──────────────────────────
+  function showPage(id, link) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    if (link) link.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return false;
+  }
+
+  // ── Project filter ───────────────────────
+  function filterProj(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.proj-card').forEach(card => {
+      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'flex' : 'none';
+    });
+  }
+
+  // ── Modal data ───────────────────────────
+  const modals = {
+    agristack: {
+      title: "Agristack — National Agricultural Registry",
+      meta: "Protean eGov Technologies · Ministry of Agriculture, India · Jan 2023 – Present",
+      type: "DPI · Government",
+      overview: "Agristack is India's foundational Digital Public Infrastructure for agriculture — a centralised, consent-based registry of farmer identity and land data designed to enable credit access, crop insurance, and government scheme delivery at national scale.",
+      role: "Spearheaded delivery as Program Manager within the Chief Digital Office. Owned the 25+ person cross-functional team, managed multi-ministry stakeholder alignment (NIC, Ministry of Agriculture, State Governments), and drove delivery from architecture decisions through to production deployment.",
+      challenges: [
+        "Navigating jurisdictional conflict between NIC (infrastructure owner), Ministry of Agriculture (policy owner), and state governments (data owners) — each with competing priorities and approval chains.",
+        "Designing consent architecture that met both government security mandates and farmer privacy requirements.",
+        "Coordinating data quality initiatives across 40M records from fragmented state-level land registry systems."
+      ],
+      outcomes: [
+        "40M+ farmer records consolidated into a unified, consent-based national registry.",
+        "Integrated crop management, yield prediction, and financial assistance dashboards.",
+        "Multi-ministry delivery model established — reused as template for subsequent DPI programmes."
+      ],
+      kpis: [
+        { num: "40M", lbl: "Farmer Records" },
+        { num: "25+", lbl: "Team Size" },
+        { num: "3+", lbl: "Ministries Aligned" },
+        { num: "₹150Cr+", lbl: "Budget Managed" }
+      ]
+    },
+    aa: {
+      title: "Account Aggregator Framework",
+      meta: "Protean eGov Technologies · Reserve Bank of India · Jan 2023 – Present",
+      type: "DPI · RBI Regulated",
+      overview: "The Account Aggregator (AA) framework is India's RBI-regulated financial data sharing infrastructure — enabling individuals to share their financial data securely and with consent across banks, NBFCs, and insurance providers for credit, investment, and insurance decisions.",
+      role: "Led delivery of API gateway infrastructure, secure data exchange pipelines, and system integration across 15+ financial institutions. Managed CI/CD deployments, environment configuration, and vendor coordination within the RBI regulatory boundary.",
+      challenges: [
+        "Managing integration complexity across 15+ financial institutions each with different API standards and security postures.",
+        "Sprint predictability at programme start was 65% — dependency mapping was opaque and scope leaked mid-cycle.",
+        "Ensuring every deliverable met RBI compliance requirements without slowing the delivery cadence."
+      ],
+      outcomes: [
+        "Sprint predictability improved from 65% to 88% through dependency mapping and scope governance.",
+        "15+ financial institutions integrated onto the AA framework.",
+        "Consent-based real-time data sharing operational across national financial infrastructure."
+      ],
+      kpis: [
+        { num: "15+", lbl: "FIs Integrated" },
+        { num: "88%", lbl: "Sprint Predictability" },
+        { num: "65%", lbl: "Starting Predictability" },
+        { num: "RBI", lbl: "Regulated Compliance" }
+      ]
+    },
+    ondc: {
+      title: "ONDC Open Finance App",
+      meta: "Protean eGov Technologies · ONDC Network · 2023–Present",
+      type: "DPI · Open Network",
+      overview: "A discovery and comparison platform built on India's Open Network for Digital Commerce (ONDC) — enabling consumers to find, compare, and access loans, insurance, and investment products across multiple lenders and providers on a single interoperable platform.",
+      role: "Led product discovery, network integration design, and delivery coordination across multiple financial service providers on the ONDC protocol.",
+      challenges: [
+        "Designing for interoperability across providers with no standardised product taxonomy.",
+        "Managing delivery against evolving ONDC protocol specifications."
+      ],
+      outcomes: [
+        "Multi-lender discovery platform operational on ONDC network.",
+        "Unified interface for loans, insurance, and investment comparison."
+      ],
+      kpis: [
+        { num: "ONDC", lbl: "Protocol" },
+        { num: "3", lbl: "Product Categories" },
+        { num: "Multi", lbl: "Lender Integration" }
+      ]
+    },
+    aisuites: {
+      title: "AI Suites — LLM-Powered Process Automation",
+      meta: "Protean eGov Technologies · Chief Digital Office · 2023–Present",
+      type: "AI · Automation",
+      overview: "A three-workstream AI deployment initiative using Claude (Anthropic) and GPT (OpenAI) to automate and augment government service delivery processes — reducing manual workload, SLA breach rates, and legacy system friction.",
+      role: "Programme managed all three workstreams: query triage automation, NLP-based conversational interfaces over legacy government systems, and SLA monitoring and prediction tooling. Responsible for vendor alignment, deployment pipelines, stakeholder acceptance, and human-in-the-loop governance design.",
+      challenges: [
+        "Integration layer complexity — LLM outputs connecting to legacy systems with no clean API contracts.",
+        "Stakeholder expectation management: aligning government users to realistic AI performance benchmarks after initial demo impressions.",
+        "Designing mandatory human escalation paths to satisfy regulatory and institutional risk requirements."
+      ],
+      outcomes: [
+        "Measurable reduction in SLA breach rates through automated triage.",
+        "NLP interfaces operational over legacy systems — reducing manual query handling overhead.",
+        "Human-in-the-loop governance model established and approved by institutional stakeholders."
+      ],
+      kpis: [
+        { num: "10+", lbl: "AI Initiatives" },
+        { num: "2", lbl: "LLM Platforms" },
+        { num: "3", lbl: "Workstreams" },
+        { num: "SLA↓", lbl: "Breach Rate" }
+      ]
+    },
+    unicef: {
+      title: "Knowledge@UNICEF",
+      meta: "QED42 · UNICEF Global · Apr 2021 – Jan 2023",
+      type: "Enterprise · CMS",
+      overview: "A Drupal 9-powered global knowledge management platform built for UNICEF — enabling thousands of contributors worldwide to create, discover, and share institutional knowledge across the organisation's global operations.",
+      role: "Technical Project Manager responsible for end-to-end delivery: requirements gathering with UNICEF's global stakeholders, Drupal architecture oversight, vendor team management, budget tracking, and go-live coordination across time zones.",
+      challenges: [
+        "Managing requirements across UNICEF's decentralised global contributor base with competing regional needs.",
+        "Knowledge retrieval performance was a critical user metric — 30-minute average retrieval time was the baseline to beat.",
+        "Delivering a $2M programme on time with no scope buffer."
+      ],
+      outcomes: [
+        "$2M budget delivered on time.",
+        "Content collaboration efficiency increased by 45%.",
+        "Knowledge retrieval time reduced from 30 minutes to 3 minutes.",
+        "Thousands of global contributors onboarded to the new platform."
+      ],
+      kpis: [
+        { num: "$2M", lbl: "On Time" },
+        { num: "45%", lbl: "Efficiency Gain" },
+        { num: "3min", lbl: "Retrieval Time" },
+        { num: "30min", lbl: "Previous Retrieval" }
+      ]
+    },
+    patrika: {
+      title: "Rajasthan Patrika Digital Transformation",
+      meta: "QED42 · Rajasthan Patrika · Apr 2021 – Jan 2023",
+      type: "Enterprise · Cloud Migration",
+      overview: "Full-stack digital transformation for Rajasthan Patrika — one of India's largest Hindi regional media groups — migrating from a legacy CMS and infrastructure to a modern JS-based stack on optimised AWS, enabling national-scale digital readership.",
+      role: "Led the migration programme end-to-end: technical stack transition, AWS infrastructure re-architecture, performance engineering, and go-live delivery. Owned load testing as a gated delivery milestone, cost optimisation tracking, and stakeholder reporting.",
+      challenges: [
+        "Legacy infrastructure could not handle traffic spikes — the platform needed to sustain 12,000 concurrent users reliably.",
+        "Cost optimisation had to be a tracked metric, not an aspiration — built dedicated cost review sprint into the delivery plan.",
+        "Performance targets were non-functional requirements at risk of being deprioritised; owned them as first-class delivery milestones."
+      ],
+      outcomes: [
+        "Platform performance improved by 70%.",
+        "Infrastructure costs reduced by 40%.",
+        "Platform handles 12,000 concurrent users reliably.",
+        "Readership grew by 150% post-launch."
+      ],
+      kpis: [
+        { num: "70%", lbl: "Performance Uplift" },
+        { num: "40%", lbl: "Cost Reduction" },
+        { num: "12K", lbl: "Concurrent Users" },
+        { num: "150%", lbl: "Readership Growth" }
+      ]
+    },
+    medianet: {
+      title: "Enterprise PMO — Media.net",
+      meta: "Media.net · Mumbai · May 2019 – Apr 2021",
+      type: "PMO · Portfolio",
+      overview: "Built and scaled a company-wide Project Portfolio Management function from zero — creating visibility, governance, and risk management across 50+ concurrent initiatives spanning 5 global offices at one of India's leading ad-tech companies.",
+      role: "Sr. Associate Project Manager reporting directly to the Company President. Designed the PPM system, established PMO best practices, built executive reporting cadences, and drove proactive risk management organisation-wide.",
+      challenges: [
+        "No centralised portfolio visibility existed — projects were tracked in siloed team tools with no executive-level view.",
+        "Project overrun rate was high due to late risk identification and ad-hoc reporting.",
+        "Driving adoption of PMO practices across 5 offices required behavioural change without formal authority."
+      ],
+      outcomes: [
+        "PMO system tracking 50+ concurrent initiatives established and adopted org-wide.",
+        "Project overruns reduced by 25% through proactive risk management.",
+        "PMO best practices adopted across all 5 global offices."
+      ],
+      kpis: [
+        { num: "50+", lbl: "Projects Tracked" },
+        { num: "25%", lbl: "Overrun Reduction" },
+        { num: "5", lbl: "Global Offices" },
+        { num: "C-Suite", lbl: "Reporting Level" }
+      ]
+    },
+    iksula: {
+      title: "Luxury Retail E-commerce Portfolio",
+      meta: "Iksula · Dubai-based Clients · Nov 2017 – May 2019",
+      type: "Enterprise · E-commerce",
+      overview: "Led end-to-end Agile delivery for Dubai-based luxury retail clients — managing four parallel pods across 12 projects covering platform builds, last-mile marketplace integrations, and continuous delivery.",
+      role: "Project Manager responsible for all four Agile pods: sprint planning, backlog grooming, stakeholder delivery reporting, junior PM mentoring, and process improvement audits.",
+      challenges: [
+        "Coordinating four parallel Agile pods with interdependent deliverables and shared resources.",
+        "Maintaining 98% on-time delivery across 12 simultaneous projects.",
+        "Developing junior PMs while managing full project load."
+      ],
+      outcomes: [
+        "12 projects delivered with 98% on-time completion.",
+        "Last-mile marketplace integrations enabled at scale.",
+        "Junior PM development programme established."
+      ],
+      kpis: [
+        { num: "12", lbl: "Projects" },
+        { num: "98%", lbl: "On-Time" },
+        { num: "40+", lbl: "Engineers Led" },
+        { num: "4", lbl: "Agile Pods" }
+      ]
+    }
+  };
+
+  function openModal(key) {
+    const d = modals[key];
+    if (!d) return;
+    const kpiHtml = d.kpis.map(k => `<div class="kpi-box"><div class="kpi-num">${k.num}</div><div class="kpi-lbl">${k.lbl}</div></div>`).join('');
+    const challengeHtml = d.challenges.map(c => `<li>${c}</li>`).join('');
+    const outcomeHtml = d.outcomes.map(o => `<li>${o}</li>`).join('');
+    document.getElementById('modalContent').innerHTML = `
+      <span class="modal-close" onclick="closeModal()">×</span>
+      <h2>${d.title}</h2>
+      <p class="modal-meta">${d.meta}</p>
+      <div class="modal-section"><h4>Overview</h4><p>${d.overview}</p></div>
+      <div class="modal-section"><h4>My Role</h4><p>${d.role}</p></div>
+      <div class="modal-section"><h4>Key Challenges</h4><ul>${challengeHtml}</ul></div>
+      <div class="modal-section"><h4>Outcomes</h4><ul>${outcomeHtml}</ul></div>
+      <div class="modal-section"><h4>Impact Metrics</h4><div class="modal-kpis">${kpiHtml}</div></div>
+    `;
+    document.getElementById('modalBg').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modalBg').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function closeModalOnBg(e) {
+    if (e.target === document.getElementById('modalBg')) closeModal();
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
 </body>
 </html>
